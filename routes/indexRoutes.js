@@ -14,8 +14,9 @@ const messages = [
   },
 ]
 
+
 indexRouter.get('/', (req, res) => {
   res.render('pages/index', { title: 'Home', messages })
 })
 
-module.exports = indexRouter
+module.exports = { indexRouter, messages }

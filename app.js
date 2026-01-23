@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const path = require('node:path')
-const indexRouter = require('./routes/indexRoutes')
+const { indexRouter } = require('./routes/indexRoutes')
 const newMsgRouter = require('./routes/newMsgRoutes')
 
 app.set('views', path.join(__dirname, 'views'))
