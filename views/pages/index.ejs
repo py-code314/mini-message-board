@@ -12,7 +12,10 @@
         <a href="#" class="msg-link">
           <h3><%= message.user %></h3>
           <p><%= message.text %></p>
-          <p><%= message.added %></p>
+          <!-- const date = new Date();
+const formattedDate = date.toLocaleString('en-US', { timeZoneName: 'short' });
+console.log(formattedDate); -->
+          <p><%= message.added.toLocaleString('en-US', { timeZoneName: 'short' }) %></p>
         </a>
       <% }) %>
     <% } %>
