@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <%- include('../partials/header.ejs') %>
+
+    <main class="main">
+      <h2 class="sub-title">New Message</h2>
+
+      <form action="/new-msg" method="post" class="form">
+        <label>
+          Username
+          <input type="text" name="username" required/>
+        </label>
+        <label>
+          Message
+          <input type="text" name="message" required />
+        </label>
+        <button>Send</button>
+      </form>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

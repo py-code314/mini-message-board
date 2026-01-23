@@ -55,6 +55,10 @@ a {
    END OF RESET 
    =================== */
 
+:root {
+  --accent-clr: #207705;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -68,7 +72,7 @@ body {
   justify-content: space-between;
   align-items: center;
   text-transform: uppercase;
-  background-color: #207705;
+  background-color: var(--accent-clr);
   padding: 0 1rem;
 }
 
@@ -106,11 +110,37 @@ body {
 
 .footer {
   padding: 1rem;
-  background-color: #207705;
+  background-color: var(--accent-clr);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Form styles */
+.form {
+  padding: 2rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 50%;
+}
 
+.form label,
+.form input {
+  width: 100%;
+  font-size: 1.5rem;
+
+}
+
+.form button {
+  background-color: var(--accent-clr);
+  font-size: 1.5rem;
+  color: white;
+  padding: 0.5rem 3rem;
+  cursor: pointer;
+  border: transparent;
+  margin-block-start: 1rem;
+}
