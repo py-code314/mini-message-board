@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+<body>
+  <%- include('../partials/header.ejs') %>
+
+  <main class="main">
+    <h2 class="sub-title">Messages</h2>
+
+    <% if (messages.length > 0) { %>
+      <% messages.forEach(message => { %>
+        <a href="#" class="msg-link">
+          <h3><%= message.user %></h3>
+          <p><%= message.text %></p>
+          <p><%= message.added %></p>
+        </a>
+      <% }) %>
+    <% } %>
+  </main>
+
+  <%- include('../partials/footer.ejs') %>
+  
+</body>
+</html>
