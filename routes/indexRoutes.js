@@ -3,13 +3,13 @@ const indexRouter = express.Router()
 
 const messages = [
   {
-    id: 1,
+    id: crypto.randomUUID(),
     text: 'Hi there!',
     user: 'Amando',
     added: new Date(),
   },
   {
-    id: 2,
+    id: crypto.randomUUID(),
     text: 'Hello World!',
     user: 'Charles',
     added: new Date(),
@@ -17,17 +17,21 @@ const messages = [
 ]
 
 indexRouter.get('/', (req, res) => {
+  res.redirect('/messages')
+})
+
+indexRouter.get('/messages', (req, res) => {
   res.render('pages/index', { title: 'Home', messages })
 })
 
-indexRouter.get('/:id', (req, res) => {
+indexRouter.get('/messages/:id', (req, res) => {
   const msgId = req.params.id
-  console.log('id:', msgId)
-  const message = messages.find((message) => message.id === Number(msgId))
-  console.log('message:', message)
+  const message = messages.find((message) => message.id === msgId)
+
   if (!message) {
     console.log('Error: message not found')
   }
+
   res.render('pages/msgDetails', { title: 'Message', message })
 })
 

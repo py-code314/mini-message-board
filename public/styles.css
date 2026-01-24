@@ -136,6 +136,12 @@ body {
 
 .form label {
   font-size: 1.5rem;
+  /* margin-block-end: 1rem; */
+}
+
+.form input {
+  margin-block-start: 0.5rem;
+  padding: 0.3rem 0.7rem;
 }
 
 .form button {
@@ -146,4 +152,14 @@ body {
   cursor: pointer;
   border: transparent;
   margin-block-start: 1rem;
+}
+
+.msg-text {
+  margin-block-end: 0.5rem;
+
+}
+
+.msg-heading {
+  font-size: 1.5rem;
+  margin-block-end: 1rem;
 }
