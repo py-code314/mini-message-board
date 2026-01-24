@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- Head -->
   <%- include('../partials/head.ejs') %>
 <body>
+  <!-- Header -->
   <%- include('../partials/header.ejs') %>
 
   <main class="main">
     <h2 class="sub-title">Message Details</h2>
 
+    <!-- Message -->
     <div class="message">
       <h3 class="msg-heading"><%= message.user %></h3>
       <p class="msg-text"><%= message.text %></p>
@@ -14,6 +17,7 @@
     </div>
   </main>
 
+  <!-- Footer -->
   <%- include('../partials/footer.ejs') %>
   
 </body>

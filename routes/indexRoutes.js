@@ -1,6 +1,7 @@
 const express = require('express')
 const indexRouter = express.Router()
 
+// Messages data
 const messages = [
   {
     id: crypto.randomUUID(),
@@ -16,14 +17,17 @@ const messages = [
   },
 ]
 
+// Homepage route
 indexRouter.get('/', (req, res) => {
   res.redirect('/messages')
 })
 
+// All messages route
 indexRouter.get('/messages', (req, res) => {
   res.render('pages/index', { title: 'Home', messages })
 })
 
+// Individual message route
 indexRouter.get('/messages/:id', (req, res) => {
   const msgId = req.params.id
   const message = messages.find((message) => message.id === msgId)

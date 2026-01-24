@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- Head -->
   <%- include('../partials/head.ejs') %>
   <body>
+    <!-- Header -->
     <%- include('../partials/header.ejs') %>
 
     <main class="main">
       <h2 class="sub-title">New Message</h2>
 
+      <!-- New message form -->
       <form action="/new-msg" method="post" class="form">
         <label>
           Username
-          <input type="text" name="username" required/>
+          <input type="text" name="username" required />
         </label>
         <label>
           Message
@@ -20,6 +23,7 @@
       </form>
     </main>
 
+    <!-- Footer -->
     <%- include('../partials/footer.ejs') %>
   </body>
 </html>
