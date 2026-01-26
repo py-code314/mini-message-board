@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/', indexRouter)
 app.use('/new-msg', newMsgRouter)
 
-const PORT = 3000
+const PORT = Number(process.env.PORT) || 3000
 app.listen(PORT, (error) => {
   if (error) {
     throw error
