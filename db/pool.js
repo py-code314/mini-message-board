@@ -1,5 +1,8 @@
 const { Pool } = require('pg')
 
+// Connect to the db using Connection URI
+const connectionString = `postgresql://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}:${process.env.DATABASE_PORT}/${process.env.DATABASE_NAME}`
+
 
 // Use env variables instead of hard coding
 // module.exports = new Pool({
@@ -13,6 +16,6 @@ const { Pool } = require('pg')
 
 // Use env variables instead of hard coding
 module.exports = new Pool({
-  connectionString: `postgresql://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}:${process.env.DATABASE_PORT}/${process.env.DATABASE_NAME}`,
+  connectionString,
 })
 
