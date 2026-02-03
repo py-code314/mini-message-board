@@ -10,13 +10,13 @@ async function getMessages(req, res) {
 // Get a specific message by id
 async function getMessage(req, res) {
   const msgId = req.params.id
-  const message = await db.getMessage(msgId)
+  const message = await db.getMessage(Number(msgId))
 
   if (!message) {
     console.log('Error: message not found')
   }
 
-  res.render('pages/msgDetails', { title: 'Message', message })
+  res.render('pages/msgDetails', { title: 'Message', message: message[0] })
 }
 
 module.exports = {

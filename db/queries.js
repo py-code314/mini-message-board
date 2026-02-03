@@ -8,11 +8,12 @@ async function getAllMessages() {
 
 // Get a specific message from db based on the id
 async function getMessage(query) {
-  const { row } = await pool.query(
+  const { rows } = await pool.query(
     "SELECT * FROM messages WHERE id = $1",
     [query],
   )
-  return row
+  
+  return rows
 }
 
 // Insert new message into db

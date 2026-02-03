@@ -11,9 +11,9 @@
 
     <!-- Message -->
     <div class="message">
-      <h3 class="msg-heading"><%= message.user %></h3>
-      <p class="msg-text"><%= message.text %></p>
-      <p><%= message.added.toLocaleString('en-US', { timeZoneName: 'short' }) %></p>
+      <h3 class="msg-heading"><%= message.user_name %></h3>
+      <p class="msg-text"><%= message.message %></p>
+      <p><%= message.date_added.toLocaleString('en-US', { timeZoneName: 'short' }) %></p>
     </div>
   </main>
 
