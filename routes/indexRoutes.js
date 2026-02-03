@@ -1,42 +1,14 @@
 const express = require('express')
 const indexRouter = express.Router()
-
-// Messages data
-// const messages = [
-//   {
-//     id: crypto.randomUUID(),
-//     text: 'Hi there!',
-//     user: 'Amando',
-//     added: new Date(),
-//   },
-//   {
-//     id: crypto.randomUUID(),
-//     text: 'Hello World!',
-//     user: 'Charles',
-//     added: new Date(),
-//   },
-// ]
+const messagesController = require('../controllers/messagesController')
 
 // Homepage route
-indexRouter.get('/', (req, res) => {
-  res.redirect('/messages')
-})
+indexRouter.get('/', messagesController.getMessages)
 
 // All messages route
-indexRouter.get('/messages', (req, res) => {
-  res.render('pages/index', { title: 'Home', messages })
-})
+indexRouter.get('/messages', messagesController.getMessages)
 
 // Individual message route
-indexRouter.get('/messages/:id', (req, res) => {
-  const msgId = req.params.id
-  const message = messages.find((message) => message.id === msgId)
+indexRouter.get('/messages/:id', messagesController.getMessage)
 
-  if (!message) {
-    console.log('Error: message not found')
-  }
-
-  res.render('pages/msgDetails', { title: 'Message', message })
-})
-
-module.exports = { indexRouter, messages }
+module.exports =  indexRouter 

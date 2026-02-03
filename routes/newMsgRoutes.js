@@ -1,23 +1,11 @@
 const express = require('express')
 const newMsgRouter = express.Router()
-const { messages } = require('./indexRoutes')
+const newMsgController = require('../controllers/newMsgController')
 
 // New message form route
-newMsgRouter.get('/', (req, res) => {
-  res.render('pages/form', { title: 'New Message' })
-})
+newMsgRouter.get('/', newMsgController.getNewMsgForm)
 
 // Route to add new message to Messages
-newMsgRouter.post('/', (req, res) => {
-  const newMsg = req.body
-
-  messages.push({
-    id: crypto.randomUUID(),
-    text: newMsg.message,
-    user: newMsg.username,
-    added: new Date(),
-  })
-  res.redirect('/')
-})
+newMsgRouter.post('/', newMsgController.addNewMsg)
 
 module.exports = newMsgRouter

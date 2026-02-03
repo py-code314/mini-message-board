@@ -9,13 +9,13 @@ CREATE TABLE messages (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   user_name VARCHAR (255),
   message TEXT,
-  date_added TIMESTAMP
+  date_added TIMESTAMPTZ
 );
 
-INSERT INTO messages (user_name, message) 
+INSERT INTO messages (user_name, message, date_added) 
 VALUES
-  ('Amando', 'Hi there!'),
-  ('Charles', 'Hello World!');
+  ('Amando', 'Hi there!', '2026-02-01 19:10:25' ),
+  ('Charles', 'Hello World!', '2026-02-02 06:30:15');
 `
 
 // Connect to the db using Connection URI
