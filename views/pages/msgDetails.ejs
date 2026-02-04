@@ -13,7 +13,9 @@
     <div class="message">
       <h3 class="msg-heading"><%= message.user_name %></h3>
       <p class="msg-text"><%= message.message %></p>
-      <p><%= message.date_added.toLocaleString('en-US', { timeZoneName: 'short' }) %></p>
+      <p class="msg-date" data-date="<%= message.date_added.toISOString() %>">
+            <%= message.date_added.toUTCString() %>
+          </p>
     </div>
   </main>
 
@@ -21,4 +23,13 @@
   <%- include('../partials/footer.ejs') %>
   
 </body>
+
+<script>
+
+  const el = document.querySelector('.msg-date')
+  const dateISO = el.getAttribute('data-date')
+  // Convert the date into local date and time
+  el.textContent = new Date(dateISO).toLocaleString()
+  
+</script>
 </html>
