@@ -9,15 +9,18 @@
     <main class="main">
       <h2 class="sub-title">New Message</h2>
 
+      <!-- Show validation errors -->
+      <%- include("../partials/errors.ejs") %>
+
       <!-- New message form -->
       <form action="/new-msg" method="post" class="form">
         <label>
-          Username
-          <input type="text" name="username" required />
+          Name
+          <input type="text" name="username" required  />
         </label>
         <label>
           Message
-          <input type="text" name="message" required />
+          <input type="text" name="message"  required/>
         </label>
         <button>Send</button>
       </form>

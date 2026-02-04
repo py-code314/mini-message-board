@@ -3,9 +3,6 @@ const { Client } = require('pg')
 // Import dotenv to access env variables
 require('dotenv').config()
 const { argv } = require('node:process')
-console.log('connection string:', argv[2])
-
-
 
 // Create table and add some initial data
 const SQL = `
@@ -22,11 +19,9 @@ VALUES
   ('Charles', 'Hello World!', '2026-02-02 06:30:15');
 `
 
-// Connect to the db using Connection URI
-// const connectionString = `postgresql://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}:${process.env.DATABASE_PORT}/${process.env.DATABASE_NAME}`
-
 async function main() {
   console.log('seeding...')
+  // Access db public connection url passed as a command line argument
   const client = new Client({
     connectionString: argv[2],
   })
