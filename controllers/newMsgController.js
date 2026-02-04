@@ -21,9 +21,8 @@ const validateMsg = [
     .withMessage(`Name ${alphaErr}`)
     .bail()
     .isLength({ min: 1, max: 255 })
-    .withMessage(`Name ${lengthErr}`)
-    .escape(),
-  body('message').trim().notEmpty().withMessage(`Message ${emptyErr}`).escape(),
+    .withMessage(`Name ${lengthErr}`),
+  body('message').trim().notEmpty().withMessage(`Message ${emptyErr}`),
 ]
 
 // Show new message form
@@ -48,6 +47,7 @@ addNewMsg = [
     }
 
     const { username, message } = matchedData(req)
+    console.log('message in controller:', message)
     await db.insertMsg(username, message)
     res.redirect('/')
   }
