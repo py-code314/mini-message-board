@@ -15,7 +15,11 @@
         <a href="/messages/<%= message.id %>" class="msg-link">
           <h3><%= message.user_name %></h3>
           <p><%= message.message %></p>
-          <p><%= message.date_added.toLocaleString('en-US', { timeZoneName: 'short' }) %></p>
+          <!-- Convert the date into ISO string -->
+          <!-- Convert the date into UTC string as a fallback value -->
+          <p class="message-date" data-date="<%= message.date_added.toISOString() %>">
+            <%= message.date_added.toUTCString() %>
+          </p>
         </a>
         <hr>
       <% }) %>
@@ -26,4 +30,12 @@
   <%- include('../partials/footer.ejs') %>
   
 </body>
+
+<script>
+  document.querySelectorAll('.message-date').forEach(el => {
+    const dateISO = el.getAttribute('data-date')
+    // Convert the date into local date and time
+    el.textContent = new Date(dateISO).toLocaleString()
+  })
+</script>
 </html>
